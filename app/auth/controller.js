@@ -9,7 +9,7 @@ module.exports ={
   signup : async (req, res, next)=>{
     try {
       const payload = req.body
-
+      console.log(payload)
       if(req.file){
         let tmp_path= req.file.path;
         let originaExt = req.file.originalname.split('.')[req.file.originalname.split('.').length - 1];
@@ -53,6 +53,7 @@ module.exports ={
       }
       
     } catch (err) {
+      console.log(err.message)
       if(err && err.name === "ValidationError"){
         return res.status(422).json({
           error: 1,

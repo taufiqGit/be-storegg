@@ -295,10 +295,10 @@ module.exports = {
         const player = await Player.findOneAndUpdate({
           _id: req.player._id
         }, payload, { new: true, runValidators: true })
-
+        consple.log(req.player)
         res.status(201).json({
           data: {
-            id: player.id,
+            id: player._id,
             name: player.name,
             phoneNumber: player.phoneNumber,
             avatar: player.avatar,
